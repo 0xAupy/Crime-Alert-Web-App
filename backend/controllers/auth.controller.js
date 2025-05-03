@@ -156,7 +156,7 @@ export const sendVerifyOtp = async (req, res) => {
       from: process.env.SENDER_EMAIL,
       to: user.email,
       subject: "Verify your account",
-      text: `Your OTP for account verification is ${otp}. It is valid for 24 hours.`,
+      text: `Your OTP for account verification is <strong>${otp}</strong>. It is valid for 24 hours.`,
     };
 
     try {
@@ -177,7 +177,8 @@ export const sendVerifyOtp = async (req, res) => {
 };
 
 export const verifyEmail = async (req, res) => {
-  const { userId, otp } = req.body;
+  const { otp } = req.body;
+  const userId = req.user.id;
   if (!userId || !otp) {
     return res
       .status(400)
