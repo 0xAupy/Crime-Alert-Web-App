@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 
 import authRoutes from "./routes/auth.routes.js";
+import protectRoute from "./middleware/auth.middleware.js";
 
 const app = express();
 dotenv.config();
