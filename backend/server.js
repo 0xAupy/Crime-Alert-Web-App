@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/mongodb.js";
 
 import authRoutes from "./routes/auth.routes.js";
-import protectRoute from "./middleware/auth.middleware.js";
 
 const app = express();
 dotenv.config();
@@ -25,6 +24,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/auth", authRoutes);
 
+//server setup
 const port = process.env.SERVER_PORT || 3000;
 connectDB();
 app.listen(port, () => {

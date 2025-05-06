@@ -6,6 +6,8 @@ import {
   getAuthUser,
   sendVerifyOtp,
   verifyEmail,
+  sendResetOtp,
+  resetPassword,
 } from "../controllers/auth.controller.js";
 import protectRoute from "../middleware/auth.middleware.js";
 
@@ -23,5 +25,9 @@ router.get("/me", protectRoute, getAuthUser);
 router.post("/send-verify-otp", protectRoute, sendVerifyOtp);
 //verify email route
 router.post("/verify-account", protectRoute, verifyEmail);
+//send reset password otp
+router.post("/send-reset-otp", protectRoute, sendResetOtp);
+//reset password route
+router.post("/reset-password", protectRoute, resetPassword);
 
 export default router;
